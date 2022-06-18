@@ -12,7 +12,7 @@ class OStats
 
     ObjectSpace.each_object do |o|
       @filters.each do |f|
-        if o.class.name.start_with? f
+        if o.class.name && o.class.name.start_with?(f)
           count_allocation_of o
           stats[o.class] += 1
         end
